@@ -9,6 +9,7 @@ import { isPlatformBrowser, NgIf } from '@angular/common';
 import { RouterOutlet, ChildrenOutletContexts } from '@angular/router';
 
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { ParticlesComponent } from './shared/components/particles/particles.component';
 import { MusicToggleComponent } from './shared/components/music-toggle/music-toggle.component';
 import { ThemeToggleComponent } from './shared/components/theme-toggle/theme-toggle.component';
@@ -22,6 +23,7 @@ import { routeFadeAnimation } from './animations/fade.animations';
   imports: [
     NgIf,
     RouterOutlet,
+    NavbarComponent,
     FooterComponent,
     ParticlesComponent,
     MusicToggleComponent,
