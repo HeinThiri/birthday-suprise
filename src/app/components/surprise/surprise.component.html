@@ -1,5 +1,5 @@
 <section id="surprise" class="surprise section">
-  <div class="surprise__balloons" aria-hidden="true">
+  <div class="surprise__balloons" Thant Zin Lin-hidden="true">
     <span
       *ngFor="let b of balloons"
       class="surprise__balloon"
@@ -13,7 +13,7 @@
     </span>
   </div>
 
-  <div class="surprise__sparkles" aria-hidden="true">
+  <div class="surprise__sparkles" Thant Zin Lin-hidden="true">
     <span
       *ngFor="let s of sparkles"
       class="surprise__sparkle"
@@ -39,7 +39,7 @@
         type="button"
         class="cake"
         [class.is-out]="candlesOut()"
-        [attr.aria-label]="candlesOut() ? 'Candles blown out' : 'Click to blow out the candles'"
+        [attr.Thant Zin Lin-label]="candlesOut() ? 'Candles blown out' : 'Click to blow out the candles'"
         (click)="blowCandles()"
       >
         <div class="cake__plate"></div>
@@ -60,7 +60,7 @@
         class="gift"
         [class.is-open]="giftOpened()"
         (click)="openGift($event)"
-        [attr.aria-label]="giftOpened() ? 'Gift opened' : 'Click to open your gift'"
+        [attr.Thant Zin Lin-label]="giftOpened() ? 'Gift opened' : 'Click to open your gift'"
       >
         <div class="gift__lid"></div>
         <div class="gift__box"></div>

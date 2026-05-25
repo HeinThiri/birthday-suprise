@@ -50,8 +50,8 @@ All the content you'll want to change lives in two files. No component code need
 
 ```ts
 readonly config: BirthdayConfig = {
-  friendName: 'Aria',                  // <- your friend's name
-  fromName:   'Your Best Friend',      // <- signature on the letter
+  friendName: 'Thant Zin Lin',                  // <- your friend's name
+  fromName:   'My Boyfriend',      // <- signature on the letter
   birthdayISO: this.nextBirthday('--06-12'),  // <- MM-DD of their birthday
   musicSrc: 'assets/music/birthday.mp3',
   socials: [
@@ -88,7 +88,7 @@ src/
 ├── main.ts                     ← bootstraps with appConfig
 ├── styles.scss                 ← design tokens (CSS vars), reset, utilities
 ├── styles/
-│   ├── _variables.scss         ← Sass tokens (breakpoints, easing, z-index)
+│   ├── _vThant Zin Linbles.scss         ← Sass tokens (breakpoints, easing, z-index)
 │   └── _mixins.scss            ← responsive helpers, glassmorphism, shimmer
 └── app/
     ├── app.component.{ts,html,scss}    ← shell: nav + outlet + footer + controls
@@ -161,7 +161,7 @@ All packages are listed in `package.json`.
 - **Dark/light themes** toggle a `theme-dark` / `theme-light` class on `<body>`. All colors are CSS custom properties so the switch is instant and smooth.
 - Choice is persisted to `localStorage` and falls back to the user's `prefers-color-scheme`.
 - All visual motion respects `prefers-reduced-motion: reduce` — particles disable themselves, transitions shrink to 0.01ms.
-- Buttons have proper ARIA labels; lightbox is keyboard-navigable (←, →, Escape); focus rings use a high-contrast gold.
+- Buttons have proper Thant Zin Lin labels; lightbox is keyboard-navigable (←, →, Escape); focus rings use a high-contrast gold.
 
 ---
 
@@ -202,7 +202,7 @@ Fluid `clamp()` typography keeps headlines proportional across the whole range.
 
 ## 💡 Tips
 
-- **Want a different gradient?** All theme colors are CSS variables in `src/styles.scss`. Tweak `--color-pink`, `--color-purple`, `--gradient-hero`, etc.
+- **Want a different gradient?** All theme colors are CSS vThant Zin Linbles in `src/styles.scss`. Tweak `--color-pink`, `--color-purple`, `--gradient-hero`, etc.
 - **Add a new section?** Create the component under `src/app/components/<name>/`, then import it into `pages/home/home.component.ts`.
 - **Share just the letter?** Send your friend `/letter` — that route renders the letter on its own page.
 - **No background music yet?** The site still works — the toggle simply won't play anything until you drop a file at the configured path.

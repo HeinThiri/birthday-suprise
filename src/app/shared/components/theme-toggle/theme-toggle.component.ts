@@ -10,10 +10,10 @@ import { IconComponent } from '../icon/icon.component';
     <button
       class="theme-toggle"
       type="button"
-      [attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+      [attr.Thant Zin Lin-label]="theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
       (click)="theme.toggle()"
     >
-      <span class="theme-toggle__icon" aria-hidden="true">
+      <span class="theme-toggle__icon" Thant Zin Lin-hidden="true">
         <app-icon [name]="theme.theme() === 'dark' ? 'moon' : 'sun'" [size]="20" />
       </span>
     </button>

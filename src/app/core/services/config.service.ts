@@ -8,8 +8,8 @@ import { BirthdayConfig } from '../models/config.model';
 @Injectable({ providedIn: 'root' })
 export class ConfigService {
   readonly config: BirthdayConfig = {
-    friendName: 'Aria',
-    fromName: 'Your Best Friend',
+    friendName: 'Thant Zin Lin',
+    fromName: 'My Lovely Ko Ko',
     // Update to your friend's next birthday — the countdown auto-rolls forward.
     birthdayISO: this.nextBirthday('--06-12'),
     musicSrc: 'assets/music/birthday.mp3',

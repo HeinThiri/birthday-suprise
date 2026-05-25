@@ -10,14 +10,15 @@ import { Wish } from '../models/wish.model';
 @Injectable({ providedIn: 'root' })
 export class ContentService {
   readonly memories: Memory[] = [
-    { id: 1, title: 'First coffee',     caption: 'Where it all began — and the latte art was awful.',         icon: 'coffee',   hue: '#ff77c6', size: 'wide' },
-    { id: 2, title: 'Beach trip',       caption: 'Salt in our hair, sunset on the horizon.',                  icon: 'wave',     hue: '#a0c4ff', size: 'sm' },
-    { id: 3, title: 'Concert night',    caption: 'We sang every lyric, even the ones we didn’t know.',        icon: 'mic',      hue: '#9d4edd', size: 'tall' },
-    { id: 4, title: 'Road trip',        caption: 'Three states, one playlist, zero regrets.',                 icon: 'car',      hue: '#ffd166', size: 'sm' },
-    { id: 5, title: 'Late-night talks', caption: 'Solving the universe over instant noodles.',                icon: 'moon',     hue: '#ffa1a1', size: 'md' },
-    { id: 6, title: 'Cake disaster',    caption: 'It collapsed. We laughed. We ordered pizza instead.',       icon: 'cake',     hue: '#ff77c6', size: 'sm' },
-    { id: 7, title: 'That one rainy day', caption: 'Two umbrellas, one shoulder, infinite warmth.',           icon: 'umbrella', hue: '#a0c4ff', size: 'md' },
-    { id: 8, title: 'Photo booth',      caption: 'Four frames of pure, unfiltered chaos.',                    icon: 'camera',   hue: '#9d4edd', size: 'sm' },
+    { id: 1, title: 'First coffee',     caption: 'Our first coffee date — your laugh turned a small café into my favorite place.',        icon: 'coffee',   hue: '#ff77c6', size: 'wide', image: 'image-1.jpg' },
+    { id: 2, title: 'Beach trip',       caption: 'Salt on our skin and your hand in mine as the sun dipped low.',                        icon: 'wave',     hue: '#a0c4ff', size: 'sm', image: 'image-2.jpg' },
+    { id: 3, title: 'Concert night',    caption: 'We sang every lyric like it was our song, even when we forgot the words.',             icon: 'mic',      hue: '#9d4edd', size: 'tall', image: 'image-3.jpg' },
+    { id: 4, title: 'Road trip',        caption: 'Maps, snacks, and the kind of playlist that made every mile feel like ours.',           icon: 'car',      hue: '#ffd166', size: 'sm', image: 'image-4.jpg' },
+    { id: 5, title: 'Late-night talks', caption: 'Those nights when the world quieted down and you became the only story I wanted to hear.', icon: 'moon',     hue: '#ffa1a1', size: 'md', image: 'image-5.jpg' },
+    { id: 6, title: 'Cake disaster',    caption: 'The cake may have failed, but your smile made that mess the best part of the day.',    icon: 'cake',     hue: '#ff77c6', size: 'sm', image: 'image-6.jpg' },
+    { id: 7, title: 'Rainy day',        caption: 'Two umbrellas, one jacket, and the warmth of being together even when the sky was grey.', icon: 'umbrella', hue: '#a0c4ff', size: 'md', image: 'image-7.jpg' },
+    { id: 8, title: 'Photo booth',      caption: 'Four silly frames, one perfect memory — and every one of them with you.',              icon: 'camera',   hue: '#9d4edd', size: 'sm', image: 'image-8.jpg' },
+    { id: 9, title: 'Your spotlight',   caption: 'That night under the lights, watching you shine made everything feel a little more magical.', icon: 'heart',    hue: '#ff77c6', size: 'md', image: 'image-9.jpg' },
   ];
 
   readonly timeline: TimelineEntry[] = [

@@ -19,11 +19,19 @@ export class MessageComponent {
    * Edit these to make the letter truly yours.
    */
   readonly paragraphs: string[] = [
-    `It's a strange and wonderful thing — writing a letter to someone who already knows me so well. So forgive me if this reads less like a card and more like a quiet conversation we'd have on a long walk.`,
-    `Some friendships move loudly. Ours moves like a song you don't realize is your favorite until it ends — only ours never ends. It just gets new verses.`,
-    `Thank you for being the person I can text in lowercase, the person who laughs at my worst jokes, and the person who somehow makes ordinary Tuesdays feel like a small holiday.`,
-    `If I could wrap up everything I admire about you and put it in a box with a bow, I'd need a much bigger box. You are brave in quiet ways. Kind in the kind of way that lasts. Funny in the way that doesn't try.`,
-    `So here's to you — to the year ahead, the dreams already taking shape, and to the version of you that hasn't even arrived yet. They're going to be magnificent. (You already are.)`,
-    `Happy birthday. I'm so glad I get to know you.`,
+    `Happy Birthday, my love ❤️`,
+    `Meeting you was the sweetest thing that ever happened to me.
+You make my life softer, happier, and full of love in ways I never expected.`,
+    `I love the way you care for me, the way you make me laugh, and the way you stay beside me even on difficult days.
+With you, even simple moments feel special.`,
+    `You are not just my boyfriend.
+You are my comfort, my peace, and my favorite person.`,
+    `Sometimes I look at you and quietly thank life for bringing you to me.
+Because loving you feels like home.`,
+    `I hope this year gives you everything your heart wishes for.
+And no matter what happens, I hope you always know this:`,
+    `You are deeply loved. By me. Always.`,
+    `Happy Birthday, ko ko.
+I love you more than words can explain. ❤️`,
   ];
 }

@@ -2,7 +2,7 @@
   <div class="container footer__inner">
     <div class="footer__brand">
       <div class="footer__brand-row">
-        <span class="footer__brand-icon" aria-hidden="true">
+        <span class="footer__brand-icon" Thant Zin Lin-hidden="true">
           <app-icon name="ribbon" [size]="26" />
         </span>
         <h3 class="footer__brand-name">
@@ -14,16 +14,16 @@
       </p>
     </div>
 
-    <nav class="footer__socials" aria-label="Social links">
+    <nav class="footer__socials" Thant Zin Lin-label="Social links">
       <a
         *ngFor="let s of config.socials"
         class="footer__social"
         [attr.href]="s.href"
-        [attr.aria-label]="s.label"
+        [attr.Thant Zin Lin-label]="s.label"
         target="_blank"
         rel="noopener"
       >
-        <span class="footer__social-icon" aria-hidden="true">
+        <span class="footer__social-icon" Thant Zin Lin-hidden="true">
           <app-icon [name]="s.icon" [size]="18" />
         </span>
         <span class="footer__social-label">{{ s.label }}</span>

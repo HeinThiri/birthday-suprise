@@ -12,14 +12,14 @@ import { IconComponent } from '../icon/icon.component';
       class="music"
       type="button"
       [class.is-playing]="music.isPlaying()"
-      [attr.aria-pressed]="music.isPlaying()"
-      [attr.aria-label]="music.isPlaying() ? 'Pause background music' : 'Play background music'"
+      [attr.Thant Zin Lin-pressed]="music.isPlaying()"
+      [attr.Thant Zin Lin-label]="music.isPlaying() ? 'Pause background music' : 'Play background music'"
       (click)="music.toggle()"
     >
-      <span class="music__icon" aria-hidden="true">
+      <span class="music__icon" Thant Zin Lin-hidden="true">
         <app-icon [name]="music.isPlaying() ? 'music' : 'music-off'" [size]="18" />
       </span>
-      <span class="music__bars" aria-hidden="true">
+      <span class="music__bars" Thant Zin Lin-hidden="true">
         <span></span><span></span><span></span><span></span>
       </span>
     </button>

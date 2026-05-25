@@ -6,7 +6,6 @@ import { GalleryComponent } from '../../components/gallery/gallery.component';
 import { TimelineComponent } from '../../components/timeline/timeline.component';
 import { MessageComponent } from '../../components/message/message.component';
 import { WishesComponent } from '../../components/wishes/wishes.component';
-import { CountdownComponent } from '../../components/countdown/countdown.component';
 import { FunComponent } from '../../components/fun/fun.component';
 import { CelebrationComponent } from '../../components/celebration/celebration.component';
 
@@ -20,7 +19,6 @@ import { CelebrationComponent } from '../../components/celebration/celebration.c
     TimelineComponent,
     MessageComponent,
     WishesComponent,
-    CountdownComponent,
     FunComponent,
     CelebrationComponent,
   ],
@@ -31,7 +29,6 @@ import { CelebrationComponent } from '../../components/celebration/celebration.c
     <app-timeline />
     <app-message />
     <app-wishes />
-    <app-countdown />
     <app-fun />
     <app-celebration />
   `,

@@ -31,7 +31,6 @@ export class NavbarComponent {
     { id: 'timeline',    label: 'Journey' },
     { id: 'message',     label: 'Letter' },
     { id: 'wishes',      label: 'Wishes' },
-    { id: 'countdown',   label: 'Countdown' },
     { id: 'celebration', label: 'Celebrate' },
   ];
 
