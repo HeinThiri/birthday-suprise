@@ -1,5 +1,5 @@
 import { Component, HostListener, inject, signal } from '@angular/core';
-import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
+import { NgFor, NgIf, NgStyle } from '@angular/common';
 
 import { ContentService } from '../../core/services/content.service';
 import { Memory } from '../../core/models/memory.model';
@@ -8,7 +8,7 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [NgClass, NgFor, NgIf, NgStyle, IconComponent],
+  imports: [NgFor, NgIf, NgStyle, IconComponent],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss',
 })
