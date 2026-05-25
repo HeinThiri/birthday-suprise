@@ -19,6 +19,18 @@
   flex-direction: column;
   gap: 0.75rem;
   z-index: 600;
+
+  @include below(md) {
+    right: 1rem;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0));
+  }
+
+  @include below(sm) {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0));
+  }
 }
 
 :host ::ng-deep .initial-loader--out {
