@@ -111,6 +111,10 @@ body {
               color var(--duration-base) var(--ease-out-quart);
 }
 
+.section {
+  scroll-margin-top: calc(5.25rem + env(safe-area-inset-top, 0));
+}
+
 @media (min-width: 768px) {
   body { background-attachment: fixed; }
 }
