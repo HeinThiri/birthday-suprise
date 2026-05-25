@@ -62,7 +62,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         easing: 'ease-out-cubic',
         once: true,
         offset: 60,
-        disable: 'phone',
       });
     });
   }

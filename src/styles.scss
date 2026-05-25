@@ -275,6 +275,17 @@ p  { margin: 0 0 var(--space-4); color: var(--text-secondary); }
 /* ----- AOS overrides ----- */
 [data-aos] { will-change: transform, opacity; }
 
+/* AOS sets opacity:0 on every [data-aos] element until it adds .aos-animate.
+   On phones we disable AOS (no-op init), so without this override every
+   animated text/title/button across the site stays invisible. */
+@media (max-width: 767px) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* ----- Reduced motion ----- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
