@@ -1,0 +1,44 @@
+<section id="wishes" class="wishes section">
+  <div class="container">
+    <div class="wishes__head">
+      <span class="section-eyebrow" data-aos="fade-down">Wishes for you</span>
+      <h2 data-aos="fade-up">Tap a wish — <span class="text-gradient">claim it</span></h2>
+      <p data-aos="fade-up" data-aos-delay="120">
+        Six little intentions for the year ahead. Tap any of them. They're yours now.
+      </p>
+    </div>
+
+    <div class="wishes__layer" #layer>
+      <div class="wishes__grid">
+        <button
+          *ngFor="let w of wishes; let i = index"
+          class="wishes__card"
+          [ngClass]="[
+            'wishes__card--' + w.accent,
+            selected()?.id === w.id ? 'is-selected' : ''
+          ]"
+          data-aos="fade-up"
+          [attr.data-aos-delay]="i * 100"
+          (click)="selectWish(w, $event)"
+        >
+          <span class="wishes__emoji" aria-hidden="true">
+            <app-icon [name]="w.icon" [size]="22" />
+          </span>
+          <h4 class="wishes__title">{{ w.title }}</h4>
+          <p class="wishes__body">{{ w.body }}</p>
+          <span class="wishes__tag">{{ w.author }}</span>
+        </button>
+      </div>
+
+      <span
+        *ngFor="let h of hearts()"
+        class="wishes__heart"
+        [style.left.%]="h.left"
+        [style.top.%]="h.top"
+        aria-hidden="true"
+      >
+        <app-icon name="heart-filled" [size]="22" />
+      </span>
+    </div>
+  </div>
+</section>

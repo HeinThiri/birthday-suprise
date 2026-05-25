@@ -1,0 +1,48 @@
+<section id="gallery" class="gallery section">
+  <div class="container">
+    <div class="gallery__head">
+      <span class="section-eyebrow" data-aos="fade-down">Memory lane</span>
+      <h2 data-aos="fade-up">Some of <span class="text-gradient">our favorite frames</span></h2>
+      <p data-aos="fade-up" data-aos-delay="120">
+        Each one a tiny museum of a moment. Click a tile to relive it bigger.
+      </p>
+    </div>
+
+    <div class="gallery__grid">
+      <button
+        *ngFor="let m of memories; let i = index"
+        class="gallery__card"
+        [ngClass]="'gallery__card--' + m.size"
+        [ngStyle]="cardGradient(m)"
+        data-aos="fade-up"
+        [attr.data-aos-delay]="i * 80"
+        (click)="open(m)"
+        [attr.aria-label]="'Open memory: ' + m.title"
+      >
+        <span class="gallery__emoji" aria-hidden="true">
+          <app-icon [name]="m.icon" [size]="72" />
+        </span>
+        <div class="gallery__meta">
+          <h4>{{ m.title }}</h4>
+          <p>{{ m.caption }}</p>
+        </div>
+        <span class="gallery__shine" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="lightbox" *ngIf="active() as a" (click)="close()">
+    <button class="lightbox__close" type="button" (click)="close()" aria-label="Close">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" type="button" (click)="$event.stopPropagation(); prev()" aria-label="Previous">‹</button>
+
+    <div class="lightbox__card" (click)="$event.stopPropagation()" [ngStyle]="cardGradient(a)">
+      <span class="lightbox__emoji" aria-hidden="true">
+        <app-icon [name]="a.icon" [size]="96" />
+      </span>
+      <h3>{{ a.title }}</h3>
+      <p class="text-script">{{ a.caption }}</p>
+    </div>
+
+    <button class="lightbox__nav lightbox__nav--next" type="button" (click)="$event.stopPropagation(); next()" aria-label="Next">›</button>
+  </div>
+</section>

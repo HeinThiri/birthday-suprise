@@ -1,0 +1,29 @@
+<section id="message" class="message section">
+  <div class="container">
+    <div class="message__head">
+      <span class="section-eyebrow" data-aos="fade-down">A letter for you</span>
+      <h2 data-aos="fade-up">Dear <span class="text-gradient">{{ config.friendName }}</span>,</h2>
+    </div>
+
+    <article class="message__paper glass" data-aos="fade-up" data-aos-delay="80">
+      <div class="message__tape message__tape--tl"></div>
+      <div class="message__tape message__tape--tr"></div>
+
+      <div class="message__body">
+        <p
+          *ngFor="let p of paragraphs; let i = index"
+          class="message__paragraph"
+          data-aos="fade-up"
+          [attr.data-aos-delay]="80 + i * 120"
+        >{{ p }}</p>
+
+        <div class="message__sig" data-aos="fade-up" data-aos-delay="900">
+          <span class="text-hand">— {{ config.fromName }}</span>
+          <span class="message__heart" aria-hidden="true">
+            <app-icon name="envelope-heart" [size]="36" />
+          </span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

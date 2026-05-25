@@ -1,0 +1,112 @@
+@use '../../../styles/mixins' as *;
+
+.timeline { position: relative; }
+
+.timeline__head {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.timeline__list {
+  list-style: none;
+  margin: 0; padding: 0;
+  position: relative;
+
+  /* Central line */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom,
+      transparent,
+      var(--color-pink),
+      var(--color-purple),
+      var(--color-gold),
+      transparent);
+    transform: translateX(-50%);
+    border-radius: 2px;
+
+    @include below(md) { left: 24px; }
+  }
+}
+
+.timeline__item {
+  position: relative;
+  margin-bottom: 4rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+
+  &--left  .timeline__card { grid-column: 1; text-align: right; }
+  &--right .timeline__card { grid-column: 3; text-align: left; }
+
+  @include below(md) {
+    grid-template-columns: 48px 1fr;
+    gap: 1rem;
+
+    .timeline__card { grid-column: 2 !important; text-align: left !important; }
+  }
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.timeline__bullet {
+  grid-column: 2;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--gradient-aurora);
+  display: grid; place-items: center;
+  position: relative;
+  box-shadow: 0 0 24px rgba(255, 119, 198, 0.55);
+  z-index: 2;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @include below(md) { grid-column: 1; width: 40px; height: 40px; }
+}
+.timeline__bullet-icon { color: white; display: inline-flex; }
+
+.timeline__card {
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  transition: transform 0.5s var(--ease-out-expo), box-shadow 0.4s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px -20px rgba(157, 78, 221, 0.5);
+  }
+}
+
+.timeline__date {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.6rem;
+}
+
+.timeline__title {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  margin: 0 0 0.5rem;
+}
+
+.timeline__desc {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}

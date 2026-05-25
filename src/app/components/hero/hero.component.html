@@ -1,0 +1,49 @@
+<section id="hero" class="hero" #parallax>
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__orb hero__orb--pink"></div>
+    <div class="hero__orb hero__orb--purple"></div>
+    <div class="hero__orb hero__orb--gold"></div>
+    <div class="hero__grid"></div>
+  </div>
+
+  <div class="hero__floats" aria-hidden="true">
+    <span
+      *ngFor="let f of floats"
+      class="hero__float"
+      [style.left.%]="f.left"
+      [style.animation-delay.s]="f.delay"
+      [style.animation-duration.s]="f.duration"
+    >
+      <app-icon [name]="f.icon" [size]="f.size" />
+    </span>
+  </div>
+
+  <div class="container hero__inner">
+    <span class="section-eyebrow" data-aos="fade-down">A surprise made for you</span>
+
+    <h1 class="hero__title" data-aos="fade-up" data-aos-delay="100">
+      <span class="hero__title-line">Happy Birthday</span>
+      <span class="hero__title-line text-gradient">{{ friendName }}</span>
+      <span class="hero__title-emoji" aria-hidden="true">
+        <app-icon name="confetti" [size]="56" />
+      </span>
+    </h1>
+
+    <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="220">
+      <span class="hero__typed">{{ typed() }}</span><span class="hero__cursor">|</span>
+    </p>
+
+    <div class="hero__actions" data-aos="fade-up" data-aos-delay="380">
+      <button class="btn btn-primary hero__cta" type="button" (click)="onCta()">
+        <span>Open Your Surprise</span>
+        <app-icon name="gift" [size]="20" />
+      </button>
+      <a class="btn btn-ghost" href="#message">Read the letter</a>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-text">scroll</span>
+      <span class="hero__scroll-line"></span>
+    </div>
+  </div>
+</section>

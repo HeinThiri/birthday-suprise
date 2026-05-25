@@ -1,0 +1,31 @@
+<section id="timeline" class="timeline section">
+  <div class="container">
+    <div class="timeline__head">
+      <span class="section-eyebrow" data-aos="fade-down">Our story</span>
+      <h2 data-aos="fade-up">A little timeline of <span class="text-gradient">us</span></h2>
+      <p data-aos="fade-up" data-aos-delay="120">
+        The moments that quietly became a friendship I'd cross years for.
+      </p>
+    </div>
+
+    <ol class="timeline__list">
+      <li
+        *ngFor="let e of entries; let i = index"
+        class="timeline__item"
+        [ngClass]="'timeline__item--' + (e.align ?? (i % 2 === 0 ? 'left' : 'right'))"
+        [attr.data-aos]="(e.align ?? (i % 2 === 0 ? 'left' : 'right')) === 'left' ? 'fade-right' : 'fade-left'"
+        data-aos-delay="100"
+      >
+        <div class="timeline__bullet">
+          <app-icon class="timeline__bullet-icon" [name]="e.icon" [size]="22" />
+        </div>
+
+        <article class="timeline__card glass">
+          <span class="timeline__date">{{ e.date }}</span>
+          <h3 class="timeline__title">{{ e.title }}</h3>
+          <p class="timeline__desc">{{ e.description }}</p>
+        </article>
+      </li>
+    </ol>
+  </div>
+</section>

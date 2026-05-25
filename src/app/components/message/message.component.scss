@@ -1,0 +1,82 @@
+@use '../../../styles/mixins' as *;
+
+.message { position: relative; }
+
+.message__head {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h2 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+  }
+}
+
+.message__paper {
+  position: relative;
+  max-width: 760px;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(ellipse at top left,  rgba(255, 209, 236, 0.15), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(157, 78, 221, 0.15), transparent 60%),
+    var(--gradient-glass);
+
+  /* subtle ruled lines */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 40px,
+      rgba(255, 255, 255, 0.04) 41px,
+      rgba(255, 255, 255, 0.04) 42px
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, transparent 0, black 6%, black 94%, transparent 100%);
+  }
+}
+
+.message__tape {
+  position: absolute;
+  width: 90px; height: 24px;
+  background: linear-gradient(135deg, rgba(255, 209, 102, 0.45), rgba(255, 209, 102, 0.25));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+
+  &--tl { top: -10px; left: 8%;   transform: rotate(-8deg); }
+  &--tr { top: -10px; right: 8%;  transform: rotate(6deg); }
+}
+
+.message__body { position: relative; z-index: 1; }
+
+.message__paragraph {
+  font-family: var(--font-hand);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  color: var(--text-primary);
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.message__sig {
+  margin-top: 2.5rem;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--color-gold);
+}
+.message__heart {
+  display: inline-flex;
+  color: var(--color-gold);
+  animation: gentle-bob 2.4s ease-in-out infinite;
+}

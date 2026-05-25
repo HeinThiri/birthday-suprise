@@ -1,0 +1,43 @@
+<section id="celebration" class="celebration section">
+  <div class="celebration__fireworks" aria-hidden="true">
+    <span
+      *ngFor="let f of fireworks"
+      class="celebration__firework"
+      [style.left.%]="f.left"
+      [style.animation-delay.s]="f.delay"
+      [style.--firework-hue]="f.hue"
+    ></span>
+  </div>
+
+  <div class="celebration__overlay" aria-hidden="true"></div>
+
+  <div class="container celebration__inner">
+    <span class="section-eyebrow" data-aos="fade-down">The big finale</span>
+
+    <h2 class="celebration__title" data-aos="zoom-in">
+      <span class="celebration__title-line">Happy Birthday,</span>
+      <span class="celebration__title-line text-gradient">{{ friendName }}</span>
+    </h2>
+
+    <p class="celebration__quote text-script" data-aos="fade-up" data-aos-delay="120">
+      “May your year be as wonderful as you've made mine.”
+    </p>
+
+    <p class="celebration__thanks" data-aos="fade-up" data-aos-delay="240">
+      Thank you for being in my life.
+      <br />
+      Truly. Every chapter is better with you in it.
+    </p>
+
+    <div class="celebration__actions" data-aos="fade-up" data-aos-delay="380">
+      <button class="btn btn-primary" type="button" (click)="manualCelebrate()">
+        <span>Celebrate again</span>
+        <app-icon name="fireworks" [size]="20" />
+      </button>
+      <a class="btn btn-ghost" href="#hero">
+        <span>Back to the top</span>
+        <app-icon name="arrow-up" [size]="18" />
+      </a>
+    </div>
+  </div>
+</section>

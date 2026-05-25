@@ -1,0 +1,26 @@
+<nav class="nav" [class.is-scrolled]="scrolled()" [class.is-open]="open()" aria-label="Primary">
+  <a class="nav__brand" routerLink="/" (click)="scrollTo('hero')">
+    <span class="nav__brand-icon" aria-hidden="true">
+      <app-icon name="ribbon" [size]="22" />
+    </span>
+    <span class="nav__brand-text">
+      For <span class="text-gradient">{{ friendName }}</span>
+    </span>
+  </a>
+
+  <button
+    class="nav__burger"
+    type="button"
+    [attr.aria-expanded]="open()"
+    aria-label="Toggle menu"
+    (click)="toggleMenu()"
+  >
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav__list" [ngClass]="{ 'is-visible': open() }">
+    <li *ngFor="let link of navLinks">
+      <button class="nav__link" (click)="scrollTo(link.id)">{{ link.label }}</button>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,26 @@
+<section id="countdown" class="countdown section">
+  <div class="container">
+    <div class="countdown__head">
+      <span class="section-eyebrow" data-aos="fade-down">Counting down</span>
+      <h2 data-aos="fade-up">
+        <ng-container *ngIf="!isToday(); else todayBlock">
+          Until the next <span class="text-gradient">trip around the sun</span>
+        </ng-container>
+        <ng-template #todayBlock>
+          Today is <span class="text-gradient">your day</span>
+          <app-icon class="countdown__cake" name="cake" [size]="44" />
+        </ng-template>
+      </h2>
+      <p class="countdown__live" data-aos="fade-up" data-aos-delay="120">
+        Live now • {{ liveTime() }}
+      </p>
+    </div>
+
+    <div class="countdown__clock glass" data-aos="fade-up" data-aos-delay="180">
+      <div class="countdown__unit" *ngFor="let u of units()">
+        <span class="countdown__value">{{ pad(u.value) }}</span>
+        <span class="countdown__label">{{ u.label }}</span>
+      </div>
+    </div>
+  </div>
+</section>

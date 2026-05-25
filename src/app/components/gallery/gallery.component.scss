@@ -1,0 +1,158 @@
+@use '../../../styles/mixins' as *;
+
+.gallery { position: relative; }
+
+.gallery__head {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: 1.25rem;
+
+  @include below(lg) { grid-template-columns: repeat(3, 1fr); }
+  @include below(md) { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+  @include below(sm) { grid-template-columns: 1fr; }
+}
+
+.gallery__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.5s var(--ease-out-expo), border-color 0.4s;
+  backdrop-filter: blur(8px);
+
+  &--wide  { grid-column: span 2; }
+  &--tall  { grid-row: span 2; }
+  &--lg    { grid-column: span 2; grid-row: span 2; }
+  &--md    { grid-column: span 1; }
+  &--sm    { grid-column: span 1; }
+
+  @include below(md) {
+    &--wide, &--lg { grid-column: span 2; }
+    &--tall { grid-row: span 1; }
+  }
+  @include below(sm) {
+    &--wide, &--lg { grid-column: span 1; }
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.25);
+
+    .gallery__emoji { transform: scale(1.2) rotate(-6deg); }
+    .gallery__shine { transform: translateX(120%) skewX(-20deg); }
+  }
+}
+
+.gallery__emoji {
+  display: inline-flex;
+  color: var(--text-primary);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+  transition: transform 0.5s var(--ease-out-expo);
+
+  app-icon { color: var(--text-primary); }
+}
+
+.gallery__meta {
+  position: absolute;
+  inset: auto 1.25rem 1.25rem 1.25rem;
+
+  h4 {
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+    font-family: var(--font-display);
+    color: var(--text-primary);
+  }
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    @include clamp-lines(2);
+  }
+}
+
+.gallery__shine {
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: transform 0.8s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(15, 5, 36, 0.85);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 5vw, 3rem);
+  animation: fade-in-up 0.4s ease-out;
+}
+
+.lightbox__card {
+  position: relative;
+  width: min(560px, 100%);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  backdrop-filter: blur(20px);
+  animation: fade-in-up 0.5s var(--ease-out-expo);
+
+  h3 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0.5rem 0 1rem; }
+  .text-script { font-size: 1.5rem; color: var(--text-primary); margin: 0; }
+}
+
+.lightbox__emoji {
+  display: inline-flex;
+  justify-content: center;
+  color: var(--text-primary);
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px;
+  font-size: 2rem;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  display: grid; place-items: center;
+  line-height: 1;
+}
+
+.lightbox__nav {
+  width: 50px; height: 50px;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  position: absolute; top: 50%;
+  transform: translateY(-50%);
+  display: grid; place-items: center;
+  line-height: 0.5;
+  transition: background 0.3s, transform 0.3s;
+
+  &:hover { background: var(--surface-strong); transform: translateY(-50%) scale(1.05); }
+  &--prev { left: 2rem; }
+  &--next { right: 2rem; }
+
+  @include below(md) { width: 40px; height: 40px; font-size: 2rem;
+    &--prev { left: 1rem; } &--next { right: 1rem; } }
+}

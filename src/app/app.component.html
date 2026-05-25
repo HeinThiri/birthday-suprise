@@ -1,0 +1,13 @@
+<app-scroll-progress />
+<app-particles />
+
+<main class="app-main" [@routeFade]="prepareRoute()">
+  <router-outlet />
+</main>
+
+<app-footer />
+
+<div class="floating-controls" *ngIf="isBrowser">
+  <app-theme-toggle />
+  <app-music-toggle />
+</div>

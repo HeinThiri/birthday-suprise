@@ -1,0 +1,79 @@
+<section id="surprise" class="surprise section">
+  <div class="surprise__balloons" aria-hidden="true">
+    <span
+      *ngFor="let b of balloons"
+      class="surprise__balloon"
+      [style.background]="b.color"
+      [style.left.%]="b.left"
+      [style.animation-delay.s]="b.delay"
+      [style.animation-duration.s]="b.duration"
+      [style.transform]="'scale(' + b.size + ')'"
+    >
+      <span class="surprise__balloon-string"></span>
+    </span>
+  </div>
+
+  <div class="surprise__sparkles" aria-hidden="true">
+    <span
+      *ngFor="let s of sparkles"
+      class="surprise__sparkle"
+      [style.top.%]="s.top"
+      [style.left.%]="s.left"
+      [style.animation-delay.s]="s.delay"
+      [style.transform]="'scale(' + s.size + ')'"
+    >
+      <app-icon name="sparkle" [size]="18" />
+    </span>
+  </div>
+
+  <div class="container surprise__inner">
+    <span class="section-eyebrow" data-aos="fade-down">Surprise!</span>
+    <h2 data-aos="fade-up">Make a wish, then click the cake.</h2>
+    <p class="surprise__lead" data-aos="fade-up" data-aos-delay="120">
+      Close your eyes for a second. Picture the year you want — bright, soft, full.
+      Now click to blow out the candles.
+    </p>
+
+    <div class="surprise__stage">
+      <button
+        type="button"
+        class="cake"
+        [class.is-out]="candlesOut()"
+        [attr.aria-label]="candlesOut() ? 'Candles blown out' : 'Click to blow out the candles'"
+        (click)="blowCandles()"
+      >
+        <div class="cake__plate"></div>
+        <div class="cake__layer cake__layer--bottom"></div>
+        <div class="cake__layer cake__layer--middle"></div>
+        <div class="cake__layer cake__layer--top"></div>
+        <div class="cake__drip"></div>
+
+        <div class="cake__candles">
+          <div class="cake__candle" *ngFor="let _ of [1,2,3]">
+            <div class="cake__flame"></div>
+          </div>
+        </div>
+      </button>
+
+      <button
+        type="button"
+        class="gift"
+        [class.is-open]="giftOpened()"
+        (click)="openGift($event)"
+        [attr.aria-label]="giftOpened() ? 'Gift opened' : 'Click to open your gift'"
+      >
+        <div class="gift__lid"></div>
+        <div class="gift__box"></div>
+        <div class="gift__ribbon-h"></div>
+        <div class="gift__ribbon-v"></div>
+        <div class="gift__bow"></div>
+        <div class="gift__shine"></div>
+      </button>
+    </div>
+
+    <div class="surprise__hint" *ngIf="candlesOut() || giftOpened()" data-aos="fade-up">
+      <span class="text-script">There's more below — keep scrolling.</span>
+      <button class="btn btn-ghost surprise__reset" (click)="reset()">Reset</button>
+    </div>
+  </div>
+</section>

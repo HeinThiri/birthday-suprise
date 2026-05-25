@@ -1,0 +1,61 @@
+<section id="fun" class="fun section">
+  <div class="container">
+    <div class="fun__head">
+      <span class="section-eyebrow" data-aos="fade-down">Just for fun</span>
+      <h2 data-aos="fade-up">A few <span class="text-gradient">small joys</span></h2>
+      <p data-aos="fade-up" data-aos-delay="120">
+        Three tiny interactions. Click around — leave little hearts everywhere.
+      </p>
+    </div>
+
+    <div class="fun__grid">
+      <article class="fun__tile glass" data-aos="fade-up">
+        <div class="fun__icon"><app-icon name="lock" [size]="28" /></div>
+        <h3>A little secret</h3>
+        <p class="fun__desc" *ngIf="!secretRevealed()">
+          There's something I've been meaning to tell you. Tap below.
+        </p>
+        <p class="fun__secret" *ngIf="secretRevealed()">
+          <span class="text-script">
+            Knowing you has been one of the best plot twists in my story.
+          </span>
+        </p>
+        <button class="btn btn-primary fun__btn" type="button" (click)="reveal()" [disabled]="secretRevealed()">
+          <span>{{ secretRevealed() ? 'Read again' : 'Reveal the secret' }}</span>
+          <app-icon [name]="secretRevealed() ? 'envelope-heart' : 'lock'" [size]="18" />
+        </button>
+      </article>
+
+      <article class="fun__tile glass" data-aos="fade-up" data-aos-delay="120">
+        <div class="fun__icon"><app-icon name="wand" [size]="28" /></div>
+        <h3>Compliment dispenser</h3>
+        <p class="fun__quote">
+          <span class="text-hand">“{{ currentCompliment() }}”</span>
+        </p>
+        <button class="btn btn-gold fun__btn" type="button" (click)="nextCompliment()">
+          <span>Give me another</span>
+          <app-icon name="sparkle" [size]="18" />
+        </button>
+      </article>
+
+      <article class="fun__tile glass fun__tile--wide" data-aos="fade-up" data-aos-delay="240">
+        <div class="fun__icon"><app-icon name="heart-filled" [size]="28" /></div>
+        <h3>Heart playground</h3>
+        <p class="fun__desc">Click anywhere in this area — leave a trail of hearts.</p>
+        <div class="fun__playground" #heartLayer (click)="onPlayground($event)">
+          <div class="fun__playground-hint">tap me</div>
+          <span
+            *ngFor="let h of hearts()"
+            class="fun__heart"
+            [style.left.%]="h.left"
+            [style.top.%]="h.top"
+            [style.transform]="'scale(' + h.size + ')'"
+            aria-hidden="true"
+          >
+            <app-icon name="heart-filled" [size]="26" />
+          </span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

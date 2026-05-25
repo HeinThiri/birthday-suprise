@@ -1,0 +1,97 @@
+@use '../../../styles/mixins' as *;
+
+.fun { position: relative; }
+
+.fun__head {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.fun__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @include below(md) { grid-template-columns: 1fr; }
+}
+
+.fun__tile {
+  padding: 2.25rem;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.4s var(--ease-out-expo);
+
+  &:hover { transform: translateY(-4px); }
+
+  &--wide { grid-column: span 2; @include below(md) { grid-column: span 1; } }
+
+  h3 { margin: 0.25rem 0 0.5rem; }
+}
+
+.fun__icon {
+  width: 60px; height: 60px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--gradient-aurora);
+  color: white;
+  box-shadow: var(--glow-pink);
+  animation: gentle-bob 3s ease-in-out infinite;
+}
+
+.fun__desc, .fun__secret, .fun__quote {
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+  max-width: 40ch;
+}
+
+.fun__secret { color: var(--text-primary); font-size: 1.5rem; animation: fade-in-up 0.6s ease-out; }
+.fun__quote { font-size: 1.4rem; min-height: 4rem; color: var(--text-primary); }
+
+.fun__btn { margin-top: auto; }
+
+.fun__playground {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  margin-top: 1rem;
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(ellipse at top left, rgba(255, 119, 198, 0.18), transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(157, 78, 221, 0.18), transparent 60%),
+    rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--border);
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+.fun__playground-hint {
+  position: absolute;
+  inset: 0;
+  display: grid; place-items: center;
+  font-family: var(--font-script);
+  font-size: 2rem;
+  color: var(--text-muted);
+  pointer-events: none;
+  animation: gentle-bob 2.4s ease-in-out infinite;
+}
+
+.fun__heart {
+  position: absolute;
+  color: var(--color-pink);
+  pointer-events: none;
+  transform-origin: center;
+  animation: heart-rise 1.8s ease-out forwards;
+  filter: drop-shadow(0 0 6px rgba(255, 119, 198, 0.6));
+}
+
+@keyframes heart-rise {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.4); }
+  25%  { opacity: 1; transform: translate(-50%, -70%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -180%) scale(0.7); }
+}
