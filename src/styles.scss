@@ -101,13 +101,18 @@ body {
   color: var(--text-primary);
   background: var(--bg-primary);
   background-image: var(--gradient-hero);
-  background-attachment: fixed;
+  background-attachment: scroll;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color var(--duration-slow) var(--ease-out-quart),
               color var(--duration-base) var(--ease-out-quart);
+}
+
+@media (min-width: 768px) {
+  body { background-attachment: fixed; }
 }
 
 img, picture, svg, video { display: block; max-width: 100%; height: auto; }

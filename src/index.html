@@ -31,5 +31,14 @@
       <div class="initial-loader__text">Preparing your surprise…</div>
     </div>
   </app-root>
+  <script>
+    // Safety net: if Angular hasn't removed the loader within 6s
+    // (slow mobile, JS error, etc.), drop it so the page isn't blank.
+    setTimeout(function () {
+      var l = document.querySelector('.initial-loader');
+      if (l) { l.style.transition = 'opacity .4s'; l.style.opacity = '0';
+        setTimeout(function () { l && l.remove(); }, 450); }
+    }, 6000);
+  </script>
 </body>
 </html>

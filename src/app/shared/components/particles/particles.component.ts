@@ -71,7 +71,10 @@ export class ParticlesComponent implements AfterViewInit, OnDestroy {
   }
 
   private seed(): void {
-    const count = Math.min(70, Math.floor((window.innerWidth * window.innerHeight) / 22000));
+    const isMobile = window.innerWidth < 768;
+    const cap = isMobile ? 25 : 70;
+    const divisor = isMobile ? 40000 : 22000;
+    const count = Math.min(cap, Math.floor((window.innerWidth * window.innerHeight) / divisor));
     this.particles = Array.from({ length: count }, () => this.makeParticle());
   }
 

@@ -10,7 +10,8 @@ export class ThemeService {
 
   init(): void {
     if (typeof window === 'undefined') return;
-    const stored = localStorage.getItem(STORAGE_KEY) as ThemeMode | null;
+    let stored: ThemeMode | null = null;
+    try { stored = localStorage.getItem(STORAGE_KEY) as ThemeMode | null; } catch {}
     const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
     const initial: ThemeMode = stored ?? (prefersLight ? 'light' : 'dark');
     this.applyTheme(initial);
@@ -25,7 +26,7 @@ export class ThemeService {
     if (typeof document !== 'undefined') {
       document.body.classList.remove('theme-light', 'theme-dark');
       document.body.classList.add(`theme-${mode}`);
-      localStorage.setItem(STORAGE_KEY, mode);
+      try { localStorage.setItem(STORAGE_KEY, mode); } catch {}
     }
   }
 }
